@@ -18,7 +18,8 @@ provider "aws" {
 #The vpc module handles the VPC creation and subnet definitions.
 
 module "vpc" {
-  source = "./my_vpc"
+  #source = "./my_vpc"
+  source = "github.com/lily4499/terraform-aws-eks-v4.git/my_vpc"
 
   vpc_id          = module.vpc.vpc_id  # Reference the VPC ID created by the VPC module
   #vpc_id         = module.my_vpc.vpc_id   # Use the vpc_id output from my_vpc module
@@ -34,7 +35,8 @@ module "vpc" {
 #The eks module leverages the outputs (private_subnet_ids, public_subnet_ids) from the my_vpc module for configuring the Amazon EKS cluster, without needing to redefine the VPC-related variables.
 
 module "eks" {
-  source = "./my_eks"
+  #source = "./my_eks"
+  source = "github.com/lily4499/terraform-aws-eks-v4.git/my_eks"
 
   # Provide required input variables for EKS module
 
