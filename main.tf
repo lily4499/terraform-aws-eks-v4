@@ -19,7 +19,8 @@ provider "aws" {
 
 module "vpc" {
   #source = "./my_vpc"
-  source = "github.com/lily4499/terraform-aws-eks-v4.git/my_vpc"
+  #source = "github.com/lily4499/terraform-aws-eks-v4.git/my_vpc"
+  source = "lily4499/eks-v4/aws//my_vpc"
 
   vpc_id          = module.vpc.vpc_id  # Reference the VPC ID created by the VPC module
   #vpc_id         = module.my_vpc.vpc_id   # Use the vpc_id output from my_vpc module
@@ -36,7 +37,8 @@ module "vpc" {
 
 module "eks" {
   #source = "./my_eks"
-  source = "github.com/lily4499/terraform-aws-eks-v4.git/my_eks"
+  #source = "github.com/lily4499/terraform-aws-eks-v4.git/my_eks"
+  source = "lily4499/eks-v4/aws//my_eks"
 
   # Provide required input variables for EKS module
 
